@@ -16,7 +16,7 @@ export const defineConfig = (config: Config) => ({
   ...config,
 });
 
-export const loadConfig = async () => {
+export const loadConfig = async (): Promise<Config> => {
   const configFileName = "zmongo.config.mjs";
   const absPath = path.resolve(process.cwd(), configFileName);
   let userDefinedConfig = Object.create(null);
@@ -29,8 +29,8 @@ export const loadConfig = async () => {
 
     return {
       ...defaultValues,
-      userDefinedConfig,
-    };
+      ...userDefinedConfig,
+    } as const;
   } catch (error: any) {
     if (error.code === "ERR_MODULE_NOT_FOUND" || error.code === "ENOENT") {
       return defaultValues;

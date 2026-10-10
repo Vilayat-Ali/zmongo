@@ -1,0 +1,54 @@
+{
+  "name": "zmongo",
+  "version": "1.0.0",
+  "description": "An npm package to automatically generate zod schemas for your mongoose models",
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "schema",
+    "zod"
+  ],
+  "homepage": "https://github.com/vilayat-ali/zmongo#readme",
+  "bugs": {
+    "url": "https://github.com/vilayat-ali/zmongo/issues"
+  },
+  "license": "MIT",
+  "author": "\"Syed Vilayat Ali Rizvi <vilayatcodemysite@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vilayat-ali/zmongo.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm",
+    "prepublishOnly": "npm run build",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
+  },
+  "dependencies": {
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^26.6.5",
+    "mongoose": "^9.11.1",
+    "oxfmt": "^0.72.0",
+    "oxlint": "^1.87.0",
+    "tsup": "^8.5.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  },
+  "peerDependencies": {
+    "mongoose": "^9.11.1"
+  }
+}
